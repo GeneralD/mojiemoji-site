@@ -2,6 +2,8 @@
 import Stamp from "./Stamp.astro";
 
 // All 16 canonical fonts, same word + calm animation so only the typeface varies.
+// NOTE: the service applies fonts to hiragana/katakana but NOT kanji yet, so the
+// sample must be hiragana — a kanji sample would render identically across all 16.
 const fonts = [
   "gothic", "gothic-bold", "maru", "maru-bold",
   "mincho", "dela", "akzk", "zero",
@@ -16,7 +18,7 @@ const fonts = [
       <span class="text-gradient">16</span> の書体
     </h2>
     <p class="mt-4 text-base text-muted sm:text-lg">
-      同じ「文字」も、書体が変われば気分が変わる。丸ゴ・明朝・手書き・ピクセルまで。
+      同じ「もじ」も、書体が変われば気分が変わる。丸ゴ・明朝・手書き・ピクセルまで。
     </p>
   </div>
 
@@ -24,7 +26,7 @@ const fonts = [
     {
       fonts.map((font) => (
         <div class="flex flex-col items-center justify-center gap-3 rounded-xl border border-white/10 bg-panel/50 px-3 py-6 transition-colors duration-200 hover:border-white/20 hover:bg-panel">
-          <Stamp text="文字" font={font} color="c084fc" animation="yurayura" height={40} class="h-10 w-auto" />
+          <Stamp text="もじ" font={font} color="c084fc" animation="yurayura" height={40} class="h-10 w-auto" />
           <code class="text-xs text-muted">{font}</code>
         </div>
       ))
