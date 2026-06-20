@@ -4,11 +4,11 @@
   <img src="./assets/banner.png" alt="mojiemoji — 日本語 GitHub を、アニメ文字スタンプで豊かに" width="100%">
 </p>
 
-![type](https://img.shields.io/badge/type-landing%20page-blue) ![Astro](https://img.shields.io/badge/Astro-6-BC52EE?logo=astro&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4-38BDF8?logo=tailwindcss&logoColor=white) ![Cloudflare Workers](https://img.shields.io/badge/Cloudflare%20Workers-static%20assets-F38020?logo=cloudflare&logoColor=white) ![bun](https://img.shields.io/badge/bun-1.x-000000?logo=bun&logoColor=white)
+[![Live](https://img.shields.io/badge/live-mojiemoji--site.yumejustice.workers.dev-22c55e?logo=cloudflare&logoColor=white)](https://mojiemoji-site.yumejustice.workers.dev) ![type](https://img.shields.io/badge/type-landing%20page-blue) ![Astro](https://img.shields.io/badge/Astro-6-BC52EE?logo=astro&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4-38BDF8?logo=tailwindcss&logoColor=white) ![Cloudflare Workers](https://img.shields.io/badge/Cloudflare%20Workers-static%20assets-F38020?logo=cloudflare&logoColor=white) ![bun](https://img.shields.io/badge/bun-1.x-000000?logo=bun&logoColor=white)
 
 [**mojiemoji**](https://mojiemoji.jozo.beer) — 日本語の GitHub Markdown のキーワードだけを、アニメーション文字スタンプに自動で置き換えるサービス＆ Claude Code プラグインの**ランディングページ**。スタンプ画像そのものを使った自己デモが特徴です。
 
-> 🚀 **Live:** _デプロイ後に確定_ → `https://mojiemoji-site.<account-subdomain>.workers.dev/`
+> 🚀 **Live:** **<https://mojiemoji-site.yumejustice.workers.dev>**
 
 ## このページについて
 
