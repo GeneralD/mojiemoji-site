@@ -1,0 +1,69 @@
+---
+/**
+ * Stamp — renders a single live mojiemoji stamp image.
+ *
+ * Builds a canonical https://mojiemoji.jozo.beer/emoji/<text>?... URL from the
+ * given font / color / animation, applying the service's real-world rules:
+ *   - color-shifting animations (disco/psycho/kira) must DROP the outline,
+ *   - rotational animations (kaiten/kage_kaiten) need speed=slow to stay readable.
+ * Colors are 6-digit hex WITHOUT a leading '#'. The page is dark, so pick from
+ * the bright (Tailwind 300–500) band — same constraint as GitHub dark mode.
+ */
+interface Props {
+  text: string;
+  font?: string;
+  color?: string;
+  animation?: string;
+  outline?: string;       // 6-hex without '#'; omit for no halo
+  outlineWidth?: number;
+  speed?: string;
+  height?: number;
+  eager?: boolean;
+  bg?: string;
+  class?: string;
+}
+
+const {
+  text,
+  font = "maru-bold",
+  color = "f472b6",
+  animation = "bane",
+  outline,
+  outlineWidth = 2,
+  speed,
+  height = 24,
+  eager = false,
+  bg = "transparent",
+  class: className = "",
+} = Astro.props;
+
+const COLOR_SHIFTING = new Set(["disco", "psycho", "kira"]);
+const NEEDS_SLOW = new Set(["kaiten", "kage_kaiten"]);
+
+const params = new URLSearchParams();
+params.set("font", font);
+params.set("color", color);
+params.set("animation", animation);
+params.set("background", bg);
+
+let resolvedSpeed = speed;
+if (!resolvedSpeed && NEEDS_SLOW.has(animation)) resolvedSpeed = "slow";
+if (resolvedSpeed) params.set("speed", resolvedSpeed);
+
+// Outline fights rainbow fills; drop it entirely for color-shifting animations.
+if (outline && !COLOR_SHIFTING.has(animation)) {
+  params.set("outline", outline);
+  params.set("outline_width", String(outlineWidth));
+}
+
+const src = `https://mojiemoji.jozo.beer/emoji/${encodeURIComponent(text)}?${params.toString()}`;
+---
+
+<img
+  src={src}
+  alt={text}
+  height={height}
+  loading={eager ? "eager" : "lazy"}
+  decoding="async"
+  class={`inline-block align-middle ${className}`}
+/>

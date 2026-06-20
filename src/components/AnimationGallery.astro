@@ -1,0 +1,55 @@
+---
+import Stamp from "./Stamp.astro";
+
+// The canonical animation vocabulary (bakusan is block-only, so it's shown
+// large in its own slot rather than in this inline grid). Font is held constant
+// so the motion is the variable; color just cycles for visual rhythm.
+const palette = [
+  "f472b6", "a855f7", "22d3ee", "4ade80", "facc15",
+  "fb923c", "60a5fa", "f87171", "818cf8", "34d399",
+];
+
+const animations = [
+  "tate_scroll", "yoko_scroll", "ekken", "tate_ekken", "bane",
+  "gatagata", "bure", "kirari", "kira", "tenmetsu",
+  "shuchusen", "kaiten", "neruneru", "patapata", "yurayura",
+  "mabataki", "norinori", "mochimochi", "poyoon", "yatta",
+  "tatemoya", "nami", "yokomoya", "zairu", "zanzo",
+  "chirichiri", "disco", "psycho", "kage_kaiten", "kage_neon",
+  "kage_bokashi", "chuuou_zoom", "mozaiku",
+];
+---
+
+<section id="animations" class="border-y border-white/5 bg-panel/30">
+  <div class="mx-auto max-w-6xl px-5 py-20 sm:py-28">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="font-display text-3xl font-bold tracking-tight text-paper sm:text-4xl">
+        <span class="text-gradient">34</span> の動き
+      </h2>
+      <p class="mt-4 text-base text-muted sm:text-lg">
+        ぷよん、きらり、集中線、回転、残像…。気分にぴったりの動きが、きっとある。
+      </p>
+    </div>
+
+    <div class="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+      {
+        animations.map((anim, i) => (
+          <div class="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-ink/50 px-4 py-4 transition-colors duration-200 hover:border-white/20 hover:bg-panel">
+            <Stamp text="もじ" font="maru-bold" color={palette[i % palette.length]} animation={anim} height={36} class="h-9 w-auto" />
+            <code class="truncate text-[11px] text-muted">{anim}</code>
+          </div>
+        ))
+      }
+
+      <div class="col-span-2 flex items-center justify-between gap-3 rounded-xl border border-brand-purple/30 bg-ink/50 px-4 py-4 sm:col-span-3 lg:col-span-1">
+        <Stamp text="爆" font="dela" color="facc15" animation="bakusan" height={44} class="h-11 w-auto" />
+        <code class="truncate text-[11px] text-brand-purple">bakusan · block</code>
+      </div>
+    </div>
+
+    <p class="mx-auto mt-8 max-w-xl text-center text-xs text-muted/70">
+      回転系（kaiten / kage_kaiten）は自動で <code class="text-muted">speed=slow</code> に、
+      色循環系（disco / psycho / kira）は outline を自動で省略。可読性のための小さな気配りも込み。
+    </p>
+  </div>
+</section>

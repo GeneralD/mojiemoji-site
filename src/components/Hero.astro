@@ -1,0 +1,108 @@
+---
+import Stamp from "./Stamp.astro";
+
+const SERVICE_URL = "https://mojiemoji.jozo.beer";
+const REPO_URL = "https://github.com/jozobeer/mojiemoji-plugin";
+---
+
+<section id="top" class="relative overflow-hidden bg-grid">
+  <!-- glow -->
+  <div
+    class="pointer-events-none absolute left-1/2 top-[-10%] -z-0 h-[480px] w-[820px] -translate-x-1/2 rounded-full opacity-30 blur-3xl"
+    style="background: radial-gradient(closest-side, #a855f7, transparent 70%);"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute right-[-10%] top-[20%] -z-0 h-[360px] w-[480px] rounded-full opacity-20 blur-3xl"
+    style="background: radial-gradient(closest-side, #22d3ee, transparent 70%);"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-6xl px-5 pb-20 pt-36 sm:pt-44">
+    <div class="mx-auto max-w-3xl text-center">
+      <span
+        class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-panel/60 px-4 py-1.5 text-xs font-semibold text-muted backdrop-blur"
+      >
+        <span class="h-2 w-2 rounded-full bg-run"></span>
+        Web サービス & Claude Code プラグイン
+      </span>
+
+      <h1
+        class="mt-6 font-display text-4xl font-bold leading-[1.15] tracking-tight text-paper sm:text-6xl"
+      >
+        GitHub の<span class="text-gradient">日本語</span>コメントに、<br class="hidden sm:block" />
+        <Stamp
+          text="表情"
+          font="rampart"
+          color="f472b6"
+          animation="kirari"
+          outline="22d3ee"
+          height={64}
+          eager={true}
+          class="h-12 w-auto sm:h-16"
+        /> を。
+      </h1>
+
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+        キーワードを書くだけ。mojiemoji が issue・PR・レビュー・リリースノートの言葉を、
+        アニメーション文字スタンプに<span class="font-semibold text-paper">自動で</span>変換します。
+      </p>
+
+      <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a
+          href={SERVICE_URL}
+          target="_blank"
+          rel="noopener"
+          class="group inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-run px-7 py-3.5 text-base font-bold text-ink shadow-xl shadow-run/25 transition-colors duration-200 hover:bg-run-bright sm:w-auto"
+        >
+          今すぐ無料で試す
+          <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h9.69L9.97 5.78a.75.75 0 1 1 1.06-1.06l5 5a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 1 1-1.06-1.06l3.47-3.47H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+          </svg>
+        </a>
+        <a
+          href={REPO_URL}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-white/15 bg-panel/50 px-7 py-3.5 text-base font-bold text-paper backdrop-blur transition-colors duration-200 hover:border-white/30 hover:bg-panel sm:w-auto"
+        >
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 .5C5.73.5.6 5.62.6 11.92c0 5.04 3.27 9.31 7.8 10.82.57.1.78-.25.78-.55v-1.93c-3.17.69-3.84-1.53-3.84-1.53-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.53-.29-5.2-1.27-5.2-5.64 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.15 1.17a10.9 10.9 0 0 1 5.74 0c2.18-1.48 3.14-1.17 3.14-1.17.63 1.57.23 2.73.11 3.02.74.8 1.18 1.82 1.18 3.07 0 4.38-2.67 5.35-5.21 5.63.41.36.78 1.05.78 2.12v3.14c0 .31.21.66.79.55a11.36 11.36 0 0 0 7.79-10.82C23.4 5.62 18.27.5 12 .5Z" />
+          </svg>
+          GitHub で見る
+        </a>
+      </div>
+
+      <p class="mt-4 text-xs text-muted/80">登録不要・URL を貼るだけ・<code class="rounded bg-panel-2 px-1.5 py-0.5 text-[11px] text-run-bright">&lt;img&gt;</code> として動く</p>
+    </div>
+
+    <!-- Live demo card: a GitHub comment, decorated by mojiemoji -->
+    <div class="float-slow mx-auto mt-14 max-w-2xl">
+      <div class="rounded-2xl border border-white/10 bg-panel/80 p-1 shadow-2xl shadow-black/40 backdrop-blur">
+        <div class="flex items-center gap-1.5 px-4 py-2.5">
+          <span class="h-3 w-3 rounded-full bg-[#ff5f57]"></span>
+          <span class="h-3 w-3 rounded-full bg-[#febc2e]"></span>
+          <span class="h-3 w-3 rounded-full bg-[#28c840]"></span>
+          <span class="ml-3 text-xs font-medium text-muted">review comment · GitHub</span>
+        </div>
+        <div class="rounded-xl bg-ink/80 px-5 py-5 text-left text-[15px] leading-loose text-paper sm:px-7">
+          これは
+          <Stamp text="マジで" font="dela" color="a855f7" animation="bane" outline="f7a855" height={26} />
+          やばい
+          <Stamp text="バグ" font="pixel" color="f97316" animation="bure" height={26} />
+          ですね。
+          <Stamp text="緊急" font="dela" color="f87171" animation="shuchusen" height={26} />
+          で
+          <Stamp text="修正" font="gothic-bold" color="60a5fa" animation="patapata" height={26} />
+          します！
+          <Stamp text="LGTM" font="maru-bold" color="4ade80" animation="yatta" height={26} />
+          したら
+          <Stamp text="歓迎" font="noto" color="ec4899" animation="kira" height={26} />
+          です。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

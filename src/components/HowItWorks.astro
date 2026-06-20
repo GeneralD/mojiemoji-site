@@ -1,0 +1,45 @@
+---
+import Stamp from "./Stamp.astro";
+
+const steps = [
+  { n: "01", title: "語を選ぶ", body: "文中で効かせたいキーワードを決める。狙い目は 2 字熟語や短いカタカナ語。" },
+  { n: "02", title: "URL を組む", body: "書体・色・動きをクエリで指定。Claude Code プラグインなら、ここを丸ごと自動生成。" },
+  { n: "03", title: "貼るだけ", body: "<img> として GitHub Markdown に貼れば、その場で動くスタンプに。ビルドも登録も不要。" },
+];
+---
+
+<section class="mx-auto max-w-6xl px-5 py-20 sm:py-28">
+  <div class="mx-auto max-w-2xl text-center">
+    <h2 class="font-display text-3xl font-bold tracking-tight text-paper sm:text-4xl">
+      仕組みは、<span class="text-gradient">URL ひとつ</span>
+    </h2>
+    <p class="mt-4 text-base text-muted sm:text-lg">
+      画像 URL のクエリを変えるだけ。中身はシンプルです。
+    </p>
+  </div>
+
+  <!-- URL anatomy -->
+  <div class="mx-auto mt-12 max-w-3xl rounded-2xl border border-white/10 bg-panel/60 p-5 sm:p-7">
+    <div class="overflow-x-auto">
+      <pre class="whitespace-pre text-[13px] leading-relaxed sm:text-sm"><code><span class="text-muted">https://mojiemoji.jozo.beer/emoji/</span><span class="text-paper">歓迎</span><span class="text-muted">?</span><span class="text-brand-cyan">font</span>=<span class="text-paper">noto</span><span class="text-muted">&amp;</span><span class="text-brand-pink">color</span>=<span class="text-paper">ec4899</span><span class="text-muted">&amp;</span><span class="text-run-bright">animation</span>=<span class="text-paper">kirari</span></code></pre>
+    </div>
+    <div class="mt-5 flex items-center gap-4 border-t border-white/10 pt-5">
+      <span class="text-sm text-muted">結果</span>
+      <span class="text-2xl text-muted/40">→</span>
+      <Stamp text="歓迎" font="noto" color="ec4899" animation="kirari" height={40} class="h-10 w-auto" />
+    </div>
+  </div>
+
+  <!-- steps -->
+  <ol class="mx-auto mt-10 grid max-w-4xl gap-5 sm:grid-cols-3">
+    {
+      steps.map((s) => (
+        <li class="rounded-2xl border border-white/10 bg-panel/40 p-6">
+          <div class="font-display text-3xl font-bold text-white/10">{s.n}</div>
+          <h3 class="mt-2 font-display text-lg font-bold text-paper">{s.title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted">{s.body}</p>
+        </li>
+      ))
+    }
+  </ol>
+</section>

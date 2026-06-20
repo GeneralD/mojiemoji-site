@@ -1,0 +1,11 @@
+{
+  // Cloudflare Workers — static-assets-only Worker for the Astro `dist/` build.
+  // No `main` script: this Worker serves the built site straight from the edge.
+  "name": "mojiemoji-site",
+  "compatibility_date": "2026-06-20",
+  "assets": {
+    "directory": "./dist",
+    // Astro is multi-page: serve the built 404.html for unknown paths.
+    "not_found_handling": "404-page"
+  }
+}

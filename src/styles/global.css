@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+/* ── mojiemoji design tokens ──────────────────────────────────────────
+   Design system: "Vibrant & Block-based" — code-dark canvas, run-green CTA,
+   playful rounded type. The rainbow pop comes from live mojiemoji stamps,
+   so the chrome stays calm and dark and lets the product do the talking. */
+@theme {
+  /* Surfaces (slate-based "code editor" canvas) */
+  --color-ink: #0f172a;       /* page background        */
+  --color-panel: #131c31;     /* raised panel           */
+  --color-panel-2: #1e293b;   /* card / inset           */
+  --color-line: #334155;      /* hairline borders       */
+  --color-paper: #f8fafc;     /* primary text           */
+  --color-muted: #94a3b8;     /* secondary text         */
+
+  /* Accents */
+  --color-run: #22c55e;       /* CTA / "run" green       */
+  --color-run-bright: #4ade80;
+  --color-brand-pink: #ec4899;
+  --color-brand-purple: #a855f7;
+  --color-brand-cyan: #22d3ee;
+
+  /* Type: per-glyph fallback — Latin uses Fredoka/Nunito, JP falls through
+     to the Zen families (the Latin faces simply lack the JP glyphs). */
+  --font-display: "Fredoka", "Zen Maru Gothic", system-ui, sans-serif;
+  --font-body: "Nunito", "Zen Kaku Gothic New", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-ink);
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track { animation: none !important; }
+  .float-slow { animation: none !important; }
+}
+
+/* Brand gradient text used on headlines */
+.text-gradient {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-brand-pink) 0%,
+    var(--color-brand-purple) 45%,
+    var(--color-brand-cyan) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Subtle grid backdrop for hero */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Horizontal auto-scrolling stamp strip */
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 2.5rem;
+  animation: marquee 40s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.float-slow {
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}

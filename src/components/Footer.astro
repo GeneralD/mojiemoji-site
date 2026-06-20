@@ -1,0 +1,24 @@
+---
+import Stamp from "./Stamp.astro";
+
+const SERVICE_URL = "https://mojiemoji.jozo.beer";
+const REPO_URL = "https://github.com/jozobeer/mojiemoji-plugin";
+const year = 2026;
+---
+
+<footer class="border-t border-white/10 bg-ink">
+  <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-5 py-10 sm:flex-row">
+    <a href="#top" class="flex items-center gap-2" aria-label="mojiemoji ホーム">
+      <Stamp text="もじ" font="rampart" color="a855f7" animation="poyoon" height={28} class="h-7 w-auto" />
+      <span class="font-display text-base font-bold text-paper">mojiemoji</span>
+    </a>
+
+    <nav class="flex items-center gap-6 text-sm text-muted">
+      <a href={SERVICE_URL} target="_blank" rel="noopener" class="transition-colors duration-200 hover:text-paper">サービス</a>
+      <a href={REPO_URL} target="_blank" rel="noopener" class="transition-colors duration-200 hover:text-paper">GitHub</a>
+      <a href={`${REPO_URL}/blob/main/LICENSE`} target="_blank" rel="noopener" class="transition-colors duration-200 hover:text-paper">MIT License</a>
+    </nav>
+
+    <p class="text-xs text-muted/70">© {year} jozobeer</p>
+  </div>
+</footer>

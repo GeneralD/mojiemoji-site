@@ -1,0 +1,45 @@
+---
+import Stamp from "./Stamp.astro";
+
+// A diverse band of live stamps — spread across fonts, colors and animations
+// the same way the product itself insists on (no single animation twice).
+const stamps = [
+  { text: "完成", font: "rampart", color: "c084fc", animation: "bane" },
+  { text: "歓迎", font: "noto", color: "ec4899", animation: "kirari" },
+  { text: "重要", font: "dela", color: "f87171", animation: "shuchusen" },
+  { text: "爆速", font: "pixel", color: "facc15", animation: "gatagata" },
+  { text: "自動", font: "chikara", color: "fdba74", animation: "norinori" },
+  { text: "確認", font: "gothic-bold", color: "60a5fa", animation: "patapata" },
+  { text: "マージ", font: "toge", color: "4ade80", animation: "nami" },
+  { text: "最高", font: "akzk", color: "a78bfa", animation: "yatta" },
+  { text: "対応", font: "maru-bold", color: "22d3ee", animation: "mochimochi" },
+  { text: "神", font: "kurobara", color: "fde047", animation: "kira" },
+  { text: "テスト", font: "hachimaru", color: "f472b6", animation: "yurayura" },
+  { text: "便利", font: "tamanegi", color: "34d399", animation: "poyoon" },
+  { text: "緊急", font: "dela", color: "fb923c", animation: "tenmetsu" },
+  { text: "祝", font: "rampart", color: "f9a8d4", animation: "ekken" },
+  { text: "革命", font: "mincho", color: "818cf8", animation: "tatemoya" },
+  { text: "完了", font: "maru", color: "86efac", animation: "neruneru" },
+  { text: "注目", font: "zero", color: "67e8f9", animation: "zanzo" },
+  { text: "優勝", font: "gothic", color: "d8b4fe", animation: "chirichiri" },
+];
+
+const loop = [...stamps, ...stamps];
+---
+
+<div class="marquee border-y border-white/5 bg-panel/40 py-6">
+  <div class="marquee-track">
+    {
+      loop.map((s) => (
+        <Stamp
+          text={s.text}
+          font={s.font}
+          color={s.color}
+          animation={s.animation}
+          height={40}
+          class="h-9 w-auto shrink-0 sm:h-10"
+        />
+      ))
+    }
+  </div>
+</div>

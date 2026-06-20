@@ -1,0 +1,66 @@
+---
+import Stamp from "./Stamp.astro";
+
+const REPO_URL = "https://github.com/jozobeer/mojiemoji-plugin";
+
+const layers = [
+  { kind: "Skill", name: "mojiemoji-github", role: "surface ごとのスタンプ配置ポリシーと helper を提供" },
+  { kind: "Subagent", name: "mojiemoji-selector", role: "フォント・色・動きを多様性を保って選定" },
+  { kind: "Skill", name: "mojiemoji-propose", role: "未装飾の語を抽出し、カタログを育てる" },
+];
+---
+
+<section id="plugin" class="border-y border-white/5 bg-panel/30">
+  <div class="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 sm:py-28 lg:grid-cols-2">
+    <div>
+      <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-ink/60 px-3 py-1 text-xs font-semibold text-amber-300">
+        Claude Code Plugin
+      </span>
+      <h2 class="mt-5 font-display text-3xl font-bold leading-tight tracking-tight text-paper sm:text-4xl">
+        プレーンに書く。<br />あとは
+        <Stamp text="自動" font="chikara" color="fdba74" animation="norinori" outline="74fdba" height={38} class="h-9 w-auto sm:h-10" />
+        で。
+      </h2>
+      <p class="mt-5 max-w-md text-base leading-relaxed text-muted">
+        プラグインを入れれば、プレーンな日本語で書いた issue・PR・レビューに、
+        適切な書体・色・動きが自動で乗ります。この README 自体が、上から下までスタンプまみれの dogfooding。
+      </p>
+
+      <a
+        href={REPO_URL}
+        target="_blank"
+        rel="noopener"
+        class="mt-7 inline-flex cursor-pointer items-center gap-2 rounded-xl border border-white/15 bg-panel/60 px-6 py-3 text-sm font-bold text-paper transition-colors duration-200 hover:border-white/30 hover:bg-panel"
+      >
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 .5C5.73.5.6 5.62.6 11.92c0 5.04 3.27 9.31 7.8 10.82.57.1.78-.25.78-.55v-1.93c-3.17.69-3.84-1.53-3.84-1.53-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.53-.29-5.2-1.27-5.2-5.64 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.15 1.17a10.9 10.9 0 0 1 5.74 0c2.18-1.48 3.14-1.17 3.14-1.17.63 1.57.23 2.73.11 3.02.74.8 1.18 1.82 1.18 3.07 0 4.38-2.67 5.35-5.21 5.63.41.36.78 1.05.78 2.12v3.14c0 .31.21.66.79.55a11.36 11.36 0 0 0 7.79-10.82C23.4 5.62 18.27.5 12 .5Z" />
+        </svg>
+        GitHub でプラグインを見る
+      </a>
+    </div>
+
+    <div class="rounded-2xl border border-white/10 bg-ink/70 p-2 shadow-2xl shadow-black/40">
+      <div class="flex items-center gap-1.5 px-3 py-2">
+        <span class="h-2.5 w-2.5 rounded-full bg-[#ff5f57]"></span>
+        <span class="h-2.5 w-2.5 rounded-full bg-[#febc2e]"></span>
+        <span class="h-2.5 w-2.5 rounded-full bg-[#28c840]"></span>
+        <span class="ml-2 text-[11px] text-muted">3-layer architecture</span>
+      </div>
+      <ul class="space-y-2 p-2">
+        {
+          layers.map((l) => (
+            <li class="flex items-start gap-3 rounded-xl bg-panel/60 px-4 py-3.5">
+              <span class="mt-0.5 rounded-md bg-ink px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-brand-cyan">
+                {l.kind}
+              </span>
+              <div>
+                <code class="text-sm font-semibold text-paper">{l.name}</code>
+                <p class="mt-0.5 text-xs leading-relaxed text-muted">{l.role}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

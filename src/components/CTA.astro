@@ -1,0 +1,47 @@
+---
+import Stamp from "./Stamp.astro";
+
+const SERVICE_URL = "https://mojiemoji.jozo.beer";
+const REPO_URL = "https://github.com/jozobeer/mojiemoji-plugin";
+---
+
+<section class="mx-auto max-w-6xl px-5 py-20 sm:py-28">
+  <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-panel/70 px-6 py-16 text-center sm:px-10">
+    <div
+      class="pointer-events-none absolute inset-0 -z-0 opacity-40 blur-3xl"
+      style="background: radial-gradient(closest-side at 50% 0%, #a855f7, transparent 70%);"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-2xl">
+      <h2 class="font-display text-3xl font-bold leading-tight tracking-tight text-paper sm:text-5xl">
+        今日の PR から、
+        <Stamp text="表情" font="rampart" color="f472b6" animation="kira" height={48} class="h-10 w-auto sm:h-14" />
+        を。
+      </h2>
+      <p class="mx-auto mt-5 max-w-lg text-base text-muted sm:text-lg">
+        登録もインストールも後回しでいい。まずは 1 語、スタンプにしてみてください。
+      </p>
+
+      <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a
+          href={SERVICE_URL}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex w-full cursor-pointer items-center justify-center rounded-xl bg-run px-8 py-4 text-base font-bold text-ink shadow-xl shadow-run/25 transition-colors duration-200 hover:bg-run-bright sm:w-auto"
+        >
+          mojiemoji.jozo.beer を開く
+        </a>
+        <a
+          href={REPO_URL}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex w-full cursor-pointer items-center justify-center rounded-xl border border-white/15 px-8 py-4 text-base font-bold text-paper transition-colors duration-200 hover:border-white/30 hover:bg-panel sm:w-auto"
+        >
+          プラグインを入れる
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

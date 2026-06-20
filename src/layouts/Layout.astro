@@ -1,0 +1,59 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "mojiemoji — 日本語 GitHub を、アニメ文字スタンプで豊かに",
+  description =
+    "mojiemoji は、日本語の GitHub Markdown のキーワードだけをアニメーション文字スタンプに自動で置き換えるサービス＆ Claude Code プラグイン。issue・PR・レビュー・リリースノートが、書くだけで表情豊かに。",
+} = Astro.props;
+
+// NOTE: filled in after the first `wrangler deploy` reveals the real
+// <name>.<account-subdomain>.workers.dev URL (launch-site Phase 8).
+const siteUrl = "https://mojiemoji-site.workers.dev/";
+const ogImage = "https://mojiemoji.jozo.beer/emoji/mojiemoji?font=rampart&color=f472b6&animation=bane&background=0f172a&outline=22d3ee&outline_width=2";
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0f172a" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Fonts: Fredoka + Nunito (Latin), Zen Maru Gothic + Zen Kaku Gothic New (JP) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap"
+    />
+
+    <!-- Preconnect to the stamp service so the hero stamps paint fast -->
+    <link rel="preconnect" href="https://mojiemoji.jozo.beer" />
+  </head>
+  <body class="bg-ink text-paper font-body antialiased selection:bg-brand-purple/40">
+    <slot />
+  </body>
+</html>

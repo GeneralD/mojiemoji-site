@@ -1,0 +1,57 @@
+---
+import Stamp from "./Stamp.astro";
+---
+
+<section id="demo" class="relative mx-auto max-w-6xl px-5 py-20 sm:py-28">
+  <div class="mx-auto max-w-2xl text-center">
+    <h2 class="font-display text-3xl font-bold tracking-tight text-paper sm:text-4xl">
+      同じ文章。<span class="text-gradient">別物</span>の印象。
+    </h2>
+    <p class="mt-4 text-base text-muted sm:text-lg">
+      情報量はそのまま。キーワードだけがスタンプになって、レビューの温度感まで伝わります。
+    </p>
+  </div>
+
+  <div class="mt-12 grid items-stretch gap-6 lg:grid-cols-[1fr_auto_1fr]">
+    <!-- Before -->
+    <figure class="flex flex-col rounded-2xl border border-white/10 bg-panel/60 p-5 sm:p-6">
+      <figcaption class="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted">
+        <span class="h-2 w-2 rounded-full bg-slate-500"></span> Before — プレーン
+      </figcaption>
+      <blockquote class="flex-1 rounded-xl bg-ink/70 px-5 py-5 text-[15px] leading-loose text-slate-300">
+        これはマジでやばいバグですね。緊急で修正お願いします。LGTM したら歓迎です。
+      </blockquote>
+    </figure>
+
+    <!-- Arrow -->
+    <div class="flex items-center justify-center" aria-hidden="true">
+      <div class="rounded-full border border-white/10 bg-panel-2 p-3 text-run-bright lg:rotate-0">
+        <svg class="h-5 w-5 rotate-90 lg:rotate-0" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h9.69L9.97 5.78a.75.75 0 1 1 1.06-1.06l5 5a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 1 1-1.06-1.06l3.47-3.47H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- After -->
+    <figure class="flex flex-col rounded-2xl border border-run/30 bg-panel/60 p-5 shadow-lg shadow-run/5 sm:p-6">
+      <figcaption class="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-run-bright">
+        <span class="h-2 w-2 rounded-full bg-run"></span> After — mojiemoji
+      </figcaption>
+      <blockquote class="flex-1 rounded-xl bg-ink/70 px-5 py-5 text-[15px] leading-loose text-paper">
+        これは
+        <Stamp text="マジで" font="dela" color="a855f7" animation="bane" outline="f7a855" height={26} />
+        やばい
+        <Stamp text="バグ" font="pixel" color="f97316" animation="bure" height={26} />
+        ですね。
+        <Stamp text="緊急" font="dela" color="ef4444" animation="shuchusen" height={26} />
+        で
+        <Stamp text="修正" font="gothic-bold" color="0ea5e9" animation="patapata" height={26} />
+        お願いします。
+        <Stamp text="LGTM" font="maru-bold" color="22c55e" animation="yatta" height={26} />
+        したら
+        <Stamp text="歓迎" font="noto" color="ec4899" animation="kirari" height={26} />
+        です。
+      </blockquote>
+    </figure>
+  </div>
+</section>
